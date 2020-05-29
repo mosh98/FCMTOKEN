@@ -15,13 +15,17 @@ public class UserFcmTokenService {
     UserFcmTokenRepo userFcmTokenRepo;
 
 
-    public String getFcmByEmail(String email){
 
-        return null;
+    public ResponseEntity<?> getFcmByUsername(String username){
+        //if the token is expired??
+        return ResponseEntity.ok(userFcmTokenRepo.getByUsername(username));
     }
 
-    public String getFcmByUsername(String username){
-        return null;
+    public ResponseEntity<?> getFcmByEmail(String email){
+
+        //if the token is expired??
+
+        return ResponseEntity.ok(userFcmTokenRepo.getByEmail(email));
     }
 
 

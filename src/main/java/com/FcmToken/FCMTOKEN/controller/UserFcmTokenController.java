@@ -4,10 +4,7 @@ import com.FcmToken.FCMTOKEN.model.UserFcmToken;
 import com.FcmToken.FCMTOKEN.service.UserFcmTokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(path = "/user")
@@ -19,13 +16,17 @@ public class UserFcmTokenController {
     UserFcmTokenService userFcmTokenService;
 
     //save the FCM
-    @PostMapping(path = "/saveFCM")
-    public ResponseEntity<?> saveFCM(@RequestBody UserFcmToken users ) throws Exception {
+    @PostMapping(path = "/saveFcm")
+    public ResponseEntity<?> saveFCM(@RequestBody UserFcmToken users )  {
         return userFcmTokenService.saveFcmForUser(users);
     }
 
 
     //get the fcm
+    @GetMapping(path = "/getFcmByMail")
+    public ResponseEntity<?> getFCM_ByEmail(String email){
+        return userFcmTokenService.getFcmByEmail(email);
+    }
 
 
 
