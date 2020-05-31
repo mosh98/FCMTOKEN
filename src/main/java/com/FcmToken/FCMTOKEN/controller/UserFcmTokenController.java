@@ -28,6 +28,11 @@ public class UserFcmTokenController {
         return userFcmTokenService.getFcmByEmail(email);
     }
 
+    @GetMapping(path = "/getFcmByUsername")
+    public ResponseEntity<?> getFCM_ByUsername(String username){
+
+        return userFcmTokenService.getFcmByUsername(username);
+    }
 
 
 }
