@@ -23,13 +23,13 @@ public class UserFcmTokenController {
 
 
     //get the fcm
-    @GetMapping(path = "/getFcmByMail")
-    public ResponseEntity<?> getFCM_ByEmail(String email){
+    @GetMapping(path = "/getFcmByMail", params = "email")
+    public ResponseEntity<?> getFCM_ByEmail(@RequestParam String email){
         return userFcmTokenService.getFcmByEmail(email);
     }
 
-    @GetMapping(path = "/getFcmByUsername")
-    public ResponseEntity<?> getFCM_ByUsername(String username){
+    @GetMapping(path = "/getFcmByUsername", params = "username")
+    public ResponseEntity<?> getFCM_ByUsername(@RequestParam String username){
 
         return userFcmTokenService.getFcmByUsername(username);
     }
