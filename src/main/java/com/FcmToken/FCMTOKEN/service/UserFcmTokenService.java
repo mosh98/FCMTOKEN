@@ -30,14 +30,14 @@ public class UserFcmTokenService {
 
 
     public ResponseEntity<?> saveFcmForUser(UserFcmToken userFcmToken){
-       if(userFcmTokenRepo.existsByUsernameOrEmail(userFcmToken.getEmail()) == true ||userFcmTokenRepo.existsByUsernameOrEmail(userFcmToken.getUsername()) == true){
+       /*if(userFcmTokenRepo.existsByUsernameOrEmail(userFcmToken.getEmail()) == true ||userFcmTokenRepo.existsByUsernameOrEmail(userFcmToken.getUsername()) == true){
            userFcmTokenRepo.deleteByUsernameOrEmail(userFcmToken.getUsername());
-       }
+       }*/
         return ResponseEntity.ok(userFcmTokenRepo.save(userFcmToken));
     }
 
     public ResponseEntity<?> updateFcmUser(UserFcmToken userFcmToken){
-        if(userFcmTokenRepo.existsByUsernameOrEmail(userFcmToken.getUsername()) != true ){ userFcmTokenRepo.deleteByUsernameOrEmail(userFcmToken.getEmail()); }
+       // if(userFcmTokenRepo.existsByUsernameOrEmail(userFcmToken.getUsername()) != true ){ userFcmTokenRepo.deleteByUsernameOrEmail(userFcmToken.getEmail()); }
       return ResponseEntity.ok(userFcmTokenRepo.save(userFcmToken));
     }
 
