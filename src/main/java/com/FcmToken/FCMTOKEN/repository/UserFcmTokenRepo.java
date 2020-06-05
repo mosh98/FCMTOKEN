@@ -10,7 +10,8 @@ public interface UserFcmTokenRepo extends JpaRepository<UserFcmToken, Integer> {
     Optional<?>getByEmail(String email);
     Optional<?>getByUsername(String username);
     Optional<?> deleteByUsername(String ss);
-    Optional<?> existsByUsername(String ss);
+
+
 
 
 }

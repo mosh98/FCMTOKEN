@@ -35,4 +35,18 @@ public class UserFcmTokenController {
     }
 
 
+    //DeleteBy username
+    @PostMapping(path = "/deleteByUsername")
+    public ResponseEntity<?> deleteByUsername (@RequestBody UserFcmToken userFcmToken){
+        return userFcmTokenService.deleteUser(userFcmToken);
+    }
+
+
+    //Update
+    @PostMapping(path = "/updateUser")
+    public ResponseEntity<?> updateFCM(@RequestBody UserFcmToken users )  {
+        return userFcmTokenService.updateFcmUser(users);
+    }
+
+
 }

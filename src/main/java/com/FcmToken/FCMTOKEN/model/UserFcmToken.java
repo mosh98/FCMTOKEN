@@ -19,6 +19,10 @@ public class UserFcmToken{
     @Column(name = "fcmToken")
     private String fcmToken;
 
+
+
+
+
     public String getUsername() {
         return username;
     }
@@ -41,5 +45,15 @@ public class UserFcmToken{
 
     public void setFcmToken(String fcmToken) {
         this.fcmToken = fcmToken;
+    }
+
+    @Override
+    public String toString() {
+        return "UserFcmToken{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", email='" + email + '\'' +
+                ", fcmToken='" + fcmToken + '\'' +
+                '}';
     }
 }
