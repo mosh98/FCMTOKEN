@@ -6,13 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+
 @Service
 public class UserFcmTokenService {
 
 
     @Autowired
     UserFcmTokenRepo userFcmTokenRepo;
-
 
 
     public ResponseEntity<?> getFcmByUsername(String username){
@@ -41,13 +42,15 @@ public class UserFcmTokenService {
     }
 
 
-    public ResponseEntity<?> deleteUser( UserFcmToken userFcmToken ){
+    @Transactional
+    public void deleteUser( UserFcmToken userFcmToken ){
 
-        if(userFcmTokenRepo.getByUsername(userFcmToken.getUsername()) != null )
-        {
-           return ResponseEntity.ok( userFcmTokenRepo.deleteByUsername(userFcmToken.getUsername()) );
-        }
-        return (ResponseEntity<?>) ResponseEntity.badRequest();
+
+            //userFcmTokenRepo.deleteByUsername(userFcmToken.getUsername());
+            //userFcmTokenRepo.delete(userFcmToken);
+            userFcmTokenRepo.removeByUsername(userFcmToken.getUsername());
+            userFcmTokenRepo.removeByUsername(userFcmToken.getUsername());
+
     }
 
 
